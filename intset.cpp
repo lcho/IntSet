@@ -1,7 +1,7 @@
-//
-//  inset.cpp
-//  lab2
-//
+/**
+ @file intset.cpp
+ 
+ */
 
 #include "intset.h"
 
@@ -89,6 +89,25 @@ IntSet IntSet::operator+(const IntSet & add) const{
 }
 
 
+
+//----------------------------------------------------------------------------
+// operator-
+// overloaded -: addition of 2 IntSets
+IntSet IntSet::operator-(const IntSet & sub) const{
+    IntSet subtraction (-1);
+    for(int index = 0; index <= sub.getSize(); index++){
+        
+        if(set[index] == true && sub.set[index]== true){
+            set[index] = false;
+        }
+    }
+    subtraction.size = size;
+    subtraction.set = set;
+    
+    return subtraction;
+}
+
+
 //----------------------------------------------------------------------------
 // operator*
 // overloaded *: multiplication of 2 Rationals, current object and parameter
@@ -173,31 +192,3 @@ istream& operator>>(istream &input, IntSet &s){
     return input;
 }
 
-
-
-/*
- 
- IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
- 
- int values[] = {value1, value2, value3, value4, value5};
- int max = 0;
- for (int counter = 0; counter < 5; counter++){
- if (values[counter] > max){
- max = values[counter];
- }
- }
- 
- set = new bool[max+1];
- size = max+1;
- for(int counter=0; counter < size; counter++){
- set[counter] = false;
- }
- for(int counter=0; counter < 5; counter++){
- if (values[counter] >= 0){
- set[ values[counter] ] = true;
- }
- }
- }
- 
- 
- */

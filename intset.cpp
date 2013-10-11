@@ -38,18 +38,6 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
      }
      */
     
-    
-    
-    
-    /* not needed - please remove
-     number = value < 0 ? 0: value;
-     
-     bool set[SIZE];
-     for (int i = 0; i < sizeof(set); i++) {
-     
-     set[i] = false;
-     }
-     */
 }
 
 

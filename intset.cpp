@@ -2,9 +2,7 @@
 //  inset.cpp
 //  lab2
 //
-//  Created by Terence Schumacher on 10/8/13.
-//  Copyright (c) 2013 Terence Schumacher. All rights reserved.
-//
+
 #include "intset.h"
 
 
@@ -71,21 +69,22 @@ IntSet IntSet::operator+(const IntSet & add) const{
     // A+B = adds all numbers in both sets
     if (size  > add.getSize()){
         for(int index = 0; index <= add.getSize(); index++){
+            
             if(add.set[index]== true){
                 set[index] = true;
             }
         }
+        addition.size = size;
         addition.set = set;
-        
     }else{
         for(int index = 0; index <= size; index++){
             if(set[index]== true){
                 add.set[index] = true;
             }
         }
+        addition.size = add.getSize();
         addition.set = add.set;
     }
-    
     return addition;
 }
 

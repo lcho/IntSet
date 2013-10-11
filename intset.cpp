@@ -133,6 +133,8 @@ IntSet IntSet::operator*(const IntSet & m) const{
         }
         
     }
+    
+    intersect.size = tempSize;
     intersect.set = temp;
     
     return intersect;

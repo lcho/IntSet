@@ -161,6 +161,21 @@ IntSet IntSet::operator*(const IntSet & m) const{
 
 
 
+
+// Insert() method
+// insert(): inserts the value into the set
+void IntSet::insert(int number){
+    
+    if (number >= 0){
+        if (number > size){
+            size = number;
+            set[number] = true;
+        }
+        
+    }
+}
+
+
 //----------------------------------------------------------------------------
 // operator<<
 // overloaded <<: prints the set

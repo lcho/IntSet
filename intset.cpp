@@ -61,6 +61,10 @@ int IntSet::getSize() const {
 }
 
 
+
+//----------------------------------------------------------------------------
+//              Boolean Comparison Operators
+//----------------------------------------------------------------------------
 //----------------------------------------------------------------------------
 // operator+
 // overloaded +: addition of 2 IntSets
@@ -162,20 +166,45 @@ IntSet IntSet::operator*(const IntSet & m) const{
 
 
 
+//----------------------------------------------------------------------------
 // Insert() method
 // insert(): inserts the value into the set
-void IntSet::insert(int number){
-    
+bool IntSet::insert(int number){
     if (number >= 0){
         if (number > size){
-            size = number;
+            size = number+1;
             set[number] = true;
         }
-        
+        set[number] = true;
     }
+    
+    // returns 1 if true and 0 if false
+    return set[number];
 }
 
 
+
+//----------------------------------------------------------------------------
+// Remove() method
+// remove(): removes the value from the set
+bool IntSet::remove(int number){
+    if (number >= 0){
+        if (number > size){
+            cout << "Number not in the set" << endl;
+        }else{
+            set[number] = false;
+        }
+    }else{
+        set[number] = false;
+    }
+    
+    return set[number];
+}
+
+
+//----------------------------------------------------------------------------
+//              Overloaded Input & Output Operators
+//----------------------------------------------------------------------------
 //----------------------------------------------------------------------------
 // operator<<
 // overloaded <<: prints the set

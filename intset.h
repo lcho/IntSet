@@ -44,8 +44,8 @@ public:
     IntSet& operator+=(const IntSet &);         //current object += parameter
     IntSet& operator-=(const IntSet &);         //current object -= parameter
     IntSet& operator*=(const IntSet &);         //current object *= parameter
-    void insert();
-    int remove(int number);
+    bool insert(int);
+    bool remove(int);
     void isEmpty(IntSet set);
     void isInSet(int number);
    

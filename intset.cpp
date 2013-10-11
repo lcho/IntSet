@@ -102,7 +102,7 @@ IntSet IntSet::operator-(const IntSet & sub) const{
 
 //----------------------------------------------------------------------------
 // operator*
-// overloaded *: multiplication of 2 Rationals, current object and parameter
+// overloaded *: intersection of 2 IntSet objects, current object and parameter
 IntSet IntSet::operator*(const IntSet & m) const{
     int tempSize = 0;
     bool * temp;

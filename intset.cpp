@@ -191,6 +191,19 @@ bool IntSet::remove(int number){
 
 
 //----------------------------------------------------------------------------
+// isEmpty() method
+// isEmpty(): returns a boolean value true if set is empty
+bool IntSet::isEmpty() {
+    for (int count = 0; count <= size; count++){
+        if (set[count] == true){
+            return false;
+        }
+    }
+    return true;
+}
+
+
+//----------------------------------------------------------------------------
 //              Overloaded Input & Output Operators
 //----------------------------------------------------------------------------
 //----------------------------------------------------------------------------

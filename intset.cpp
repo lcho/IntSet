@@ -245,16 +245,20 @@ IntSet IntSet::operator=(const IntSet & assign) {
 // operator+=
 // overloaded +=: 
 IntSet IntSet::operator+=(const IntSet & add) {
-    *this = *this + add;
-
-    return *this;
+    return *this = *this + add;
 }
 //----------------------------------------------------------------------------
 // operator-=
-// overloaded -=: 
+// overloaded -=:
+IntSet IntSet::operator+=(const IntSet & sub) {
+    return *this = *this - sub;
+}
 //----------------------------------------------------------------------------
 // operator*=
 // overloaded *=: 
+IntSet IntSet::operator+=(const IntSet & multiply) {
+    return *this = *this * multiply;
+}
 
 
 

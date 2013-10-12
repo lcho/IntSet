@@ -27,7 +27,8 @@ class IntSet{
 public:
     // (On main.cpp) Users are unable to type in ' IntSet A(); '    or     ' IntSet E; '
     // Note: Default Empty Constructor doesn't seem to working properly
-    IntSet();
+    // IntSet();
+    // The constructor below actually serves as the default and the "normal" constructor
     IntSet(int = -1, int = -1, int = -1, int = -1, int = -1);
     
     // To grab the size of the IntSet

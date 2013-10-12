@@ -1,11 +1,27 @@
-/** @file intset.cpp  */
+/**     @file intset.cpp 
+        @brief Constructors and Methods
+        @author Lance Cho
+        @author Terence Schumacher
+        
+
+*/
 
 #include "intset.h"
 const int MAX_VALUE = 5;
+const string INCORRECT_DEVOID = "Number not in the set"; 
+const string INCORRECT_NEGATIVE = "Negative Numbers incorrect input; Omitted." ;
 //----------------------------------------------------------------------------
 //              Constructors
 //----------------------------------------------------------------------------
 // Constructor
+/**@class IntSet
+ * @param[in] value1 set value transferred into the bool array
+ * @param[in] value2 set value transferred into the bool array
+ * @param[in] value3 set value transferred into the bool array
+ * @param{in} value4 set value transferred into the bool array
+ * @param[in] value5 set value transferred into the bool array
+ * @return IntSet 
+ */
 IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
     
     int values[] = {value1, value2, value3, value4, value5};
@@ -46,72 +62,62 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
 //----------------------------------------------------------------------------
 // operator+
 // overloaded +: addition of 2 IntSets
+// @param[in] IntSet first set to combine
+// @param[in] IntSet second set to combine
+// @return IntSet first+second
 IntSet IntSet::operator+(const IntSet & add) const{
-    int tempSize = 0;
-    bool * temp;
-    IntSet addition (-1);
+    IntSet addition (-1);       //Why is this putting in -1?
     // A+B = adds all numbers in both sets
-    if (size  > add.size){
-        tempSize = size;
-        temp = new bool [tempSize];
-        for(int index = 0; index <= size; index++){
-            if(set[index]== true){
-                temp[index] = true;
-            }
-        }
-        for(int index = 0; index <= add.size; index++){
+    if (size  > add.getSize()){
+        for(int index = 0; index <= add.getSize(); index++){
             
             if(add.set[index]== true){
-                temp[index] = true;
+                set[index] = true;
             }
         }
+        addition.size = size;
+        addition.set = set;
     }else{
-        tempSize = add.size;
-        temp = new bool [tempSize];
-        for(int index = 0; index <= add.size; index++){
-            if(add.set[index]== true){
-                temp[index] = true;
-            }
-        }
         for(int index = 0; index <= size; index++){
             if(set[index]== true){
                 add.set[index] = true;
             }
         }
+        addition.size = add.getSize();
+        addition.set = add.set;
     }
-    addition.size = tempSize;
-    addition.set = temp;
     return addition;
-} // end operator+
+}
 
 
 
 //----------------------------------------------------------------------------
 // operator-
-// overloaded -: addition of 2 IntSets
+// overloaded -: addition of 2 IntSets, current object and parameter
+// @param[in] IntSet object The first set in the operation 
+// @param[in] IntSet object The set subtracted from the first
+// @return IntSet first-second
 IntSet IntSet::operator-(const IntSet & sub) const{
-    bool* temp = new bool [size];
     IntSet subtraction (-1);
-    for(int index = 0; index <= size; index++){
-        if(set[index]== true){
-            temp[index] = true;
-        }
-    }
-    for(int index = 0; index <= sub.size; index++){
+    for(int index = 0; index <= sub.getSize(); index++){
+        
         if(set[index] == true && sub.set[index]== true){
-            temp[index] = false;
+            set[index] = false;
         }
     }
     subtraction.size = size;
-    subtraction.set = temp;
-
+    subtraction.set = set;
+    
     return subtraction;
-} // end operator-
+}
 
 
 //----------------------------------------------------------------------------
 // operator*
 // overloaded *: intersection of 2 IntSet objects, current object and parameter
+// @param[in] IntSet First set for comparision
+// @param[in] IntSet Second set for comparison
+// @return IntSet first*second
 IntSet IntSet::operator*(const IntSet & m) const{
     int tempSize = 0;
     bool * temp;
@@ -163,6 +169,9 @@ IntSet IntSet::operator*(const IntSet & m) const{
 //----------------------------------------------------------------------------
 // Insert() method
 // insert(): inserts the value into the set
+// @param[in] number value designated to insert into set
+// @param[out] number placed into IntSet
+// @return bool true/false
 bool IntSet::insert(int number){
     if (number >= 0){
         if (number > size){
@@ -171,6 +180,10 @@ bool IntSet::insert(int number){
         }
         set[number] = true;
     }
+    else
+        {
+            cout << INCORRECT_NEGATIVE << endl;
+        }
     
     // returns 1 if true and 0 if false
     return set[number];
@@ -181,10 +194,13 @@ bool IntSet::insert(int number){
 //----------------------------------------------------------------------------
 // Remove() method
 // remove(): removes the value from the set
+// @param[in] number integer in set that is removed
+// @param[out] IntSet set devoid of the integer
+// @return bool true/false
 bool IntSet::remove(int number){
     if (number >= 0){
         if (number > size){
-            cout << "Number not in the set" << endl;
+            cout << INCORRECT_DEVOID << endl;
         }else{
             set[number] = false;
         }
@@ -203,11 +219,13 @@ bool IntSet::remove(int number){
 //----------------------------------------------------------------------------
 // operator<<
 // overloaded <<: prints the set
-
+// @param[in] ostream stream used to print set
+// @param[in] IntSet the set to print to console
+// @return IntSet output in formation {a, b, c}
 ostream& operator<<(ostream &output, const IntSet& s) {
     output << "{ ";
     for (int counter = 0; counter < s.size; counter++){
-        output << s.set[counter] << " ";
+        output << s.set[counter] << ", ";
     }
     output << "}";
     return output;
@@ -219,6 +237,9 @@ ostream& operator<<(ostream &output, const IntSet& s) {
 //----------------------------------------------------------------------------
 // operator>>
 // overloaded >>:  Not Yet Done
+// @param[in] istream stream used to gather input
+// @param[in] IntSet set to assign input 
+// @return IntSet assigned input values
 istream& operator>>(istream &input, IntSet &s){
  
  //-------Remove before submitting-----
@@ -258,8 +279,19 @@ istream& operator>>(istream &input, IntSet &s){
 //----------------------------------------------------------------------------
 //              Other Methods
 //----------------------------------------------------------------------------
+// Accessor Methods:
+// getSize()
+// getSize(): returns the private data 'size' of the IntSet
+// @return integer
+int IntSet::getSize() const {
+    return size;
+}
+
+
+//----------------------------------------------------------------------------
 // isEmpty() method
 // isEmpty(): returns a boolean value true if set is empty
+// @return bool
 bool IntSet::isEmpty() {
     for (int count = 0; count <= size; count++){
         if (set[count] == true){
@@ -272,6 +304,8 @@ bool IntSet::isEmpty() {
 //----------------------------------------------------------------------------
 // isInSet() method
 // isInSet(): returns a boolean value true if set is empty
+// @param[in] number value to check in the set
+// @return bool
 bool IntSet::isInSet(int number){
     if (number >=0 && number <= size){
         return set[number];

@@ -244,6 +244,11 @@ IntSet IntSet::operator=(const IntSet & assign) {
 //----------------------------------------------------------------------------
 // operator+=
 // overloaded +=: 
+IntSet IntSet::operator+=(const IntSet & add) {
+    *this = *this + add;
+
+    return *this;
+}
 //----------------------------------------------------------------------------
 // operator-=
 // overloaded -=: 

@@ -8,8 +8,9 @@
 
 #include "intset.h"
 const int MAX_VALUE = 5;
-const string INCORRECT_DEVOID = "Number not in the set"; 
-const string INCORRECT_NEGATIVE = "Negative Numbers incorrect input; Omitted." ;
+//const string INCORRECT_DEVOID = "Number not in the set"; 
+// const string INCORRECT_NEGATIVE = "Negative Numbers incorrect input; Omitted." ;
+
 //----------------------------------------------------------------------------
 //              Constructors
 //----------------------------------------------------------------------------
@@ -30,9 +31,7 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
         if (values[counter] > max){
             max = values[counter];
         }
-        
     }
-    
     set = new bool[max+1];
     size = max+1;
     for(int counter=0; counter < size; counter++){
@@ -45,13 +44,6 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
         }
         
     }
-    
-    /*  for testing
-     for(int counter=0; counter < size; counter++){
-     cout << set[counter] << " ";
-     }
-     */
-    
 } // end Constructor
 
 
@@ -232,11 +224,34 @@ IntSet IntSet::operator=(const IntSet & assign) {
 //              Boolean Comparison Operators
 //----------------------------------------------------------------------------
 // operator==
-// overloaded ==: 
+// overloaded ==:
+bool IntSet::operator==(const IntSet & equal) const{
+    if (size != equal.size){
+        return false;
+    }else{
+        for(int counter=0; counter <=size; counter++){
+            if( equal.set[counter]!=set[counter]){
+                return false;
+            }
+        }
+    }
+    return true;
+}
 //----------------------------------------------------------------------------
 // operator!=
 // overloaded !=: 
-
+bool IntSet::operator!=(const IntSet & notEqual) const{
+    if (size == notEqual.size){
+        return false;
+    }else{
+        for(int counter=0; counter <=size; counter++){
+            if( notEqual.set[counter]!=set[counter]){
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
 
 //----------------------------------------------------------------------------
@@ -271,19 +286,17 @@ IntSet IntSet::operator+=(const IntSet & multiply) {
 // @param[out] number placed into IntSet
 // @return bool true/false
 bool IntSet::insert(int number){
-    if (number >= 0){
+    if (number < 0){
+            return false;
+    }
+    else{
         if (number > size){
             size = number+1;
             set[number] = true;
         }
         set[number] = true;
     }
-    else
-        {
-            cout << INCORRECT_NEGATIVE << endl;
-        }
     
-    // returns 1 if true and 0 if false
     return set[number];
 }
 //----------------------------------------------------------------------------
@@ -295,7 +308,7 @@ bool IntSet::insert(int number){
 bool IntSet::remove(int number){
     if (number >= 0){
         if (number > size){
-            cout << INCORRECT_DEVOID << endl;
+            return false;
         }else{
             set[number] = false;
         }

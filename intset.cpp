@@ -57,8 +57,7 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
 
 
 //----------------------------------------------------------------------------
-//              Boolean Comparison Operators
-//----------------------------------------------------------------------------
+//              Arithmetic OperatorsBoolean Comparison Operators
 //----------------------------------------------------------------------------
 // operator+
 // overloaded +: addition of 2 IntSets
@@ -66,10 +65,10 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
 // @param[in] IntSet second set to combine
 // @return IntSet first+second
 IntSet IntSet::operator+(const IntSet & add) const{
-    IntSet addition (-1);       //Why is this putting in -1?
+    IntSet addition;  
     // A+B = adds all numbers in both sets
-    if (size  > add.getSize()){
-        for(int index = 0; index <= add.getSize(); index++){
+    if (size  > add.size{
+        for(int index = 0; index <= add.size; index++){
             
             if(add.set[index]== true){
                 set[index] = true;
@@ -83,7 +82,7 @@ IntSet IntSet::operator+(const IntSet & add) const{
                 add.set[index] = true;
             }
         }
-        addition.size = add.getSize();
+        addition.size = add.size;
         addition.set = add.set;
     }
     return addition;
@@ -98,15 +97,20 @@ IntSet IntSet::operator+(const IntSet & add) const{
 // @param[in] IntSet object The set subtracted from the first
 // @return IntSet first-second
 IntSet IntSet::operator-(const IntSet & sub) const{
-    IntSet subtraction (-1);
-    for(int index = 0; index <= sub.getSize(); index++){
-        
+    bool* temp = new bool [size];
+    IntSet subtraction;
+    for(int index = 0; index <= size; index++){
+        if(set[index]== true){
+            temp[index] = true;
+        }
+    }
+    for(int index = 0; index <= sub.size; index++){
         if(set[index] == true && sub.set[index]== true){
-            set[index] = false;
+            temp[index] = false;
         }
     }
     subtraction.size = size;
-    subtraction.set = set;
+    subtraction.set = temp;
     
     return subtraction;
 }
@@ -121,7 +125,7 @@ IntSet IntSet::operator-(const IntSet & sub) const{
 IntSet IntSet::operator*(const IntSet & m) const{
     int tempSize = 0;
     bool * temp;
-    IntSet intersect (-1);
+    IntSet intersect;
     
     // A*B = goes inside this if statement if A's size is bigger
     if (size  > m.size{
@@ -165,7 +169,33 @@ IntSet IntSet::operator*(const IntSet & m) const{
 
 
 
+//----------------------------------------------------------------------------
+//              Boolean Comparison Operators
+//----------------------------------------------------------------------------
+// operator==
+// overloaded ==: 
+//----------------------------------------------------------------------------
+// operator!=
+// overloaded !=: 
 
+
+
+//----------------------------------------------------------------------------
+//              Assignment Operators
+//----------------------------------------------------------------------------
+// operator+=
+// overloaded +=: 
+//----------------------------------------------------------------------------
+// operator-=
+// overloaded -=: 
+//----------------------------------------------------------------------------
+// operator*=
+// overloaded *=: 
+
+
+
+//----------------------------------------------------------------------------
+//              Basic Functions
 //----------------------------------------------------------------------------
 // Insert() method
 // insert(): inserts the value into the set
@@ -188,9 +218,6 @@ bool IntSet::insert(int number){
     // returns 1 if true and 0 if false
     return set[number];
 }
-
-
-
 //----------------------------------------------------------------------------
 // Remove() method
 // remove(): removes the value from the set
@@ -210,12 +237,35 @@ bool IntSet::remove(int number){
     
     return set[number];
 }
+//----------------------------------------------------------------------------
+// isEmpty() method
+// isEmpty(): returns a boolean value true if set is empty
+// @return bool
+bool IntSet::isEmpty() {
+    for (int count = 0; count <= size; count++){
+        if (set[count] == true){
+            return false;
+        }
+    }
+    return true;
+}
+
+//----------------------------------------------------------------------------
+// isInSet() method
+// isInSet(): returns a boolean value true if set is empty
+// @param[in] number value to check in the set
+// @return bool
+bool IntSet::isInSet(int number){
+    if (number >=0 && number <= size){
+        return set[number];
+    }
+    return false;
+}
 
 
 
 //----------------------------------------------------------------------------
 //              Overloaded Input & Output Operators
-//----------------------------------------------------------------------------
 //----------------------------------------------------------------------------
 // operator<<
 // overloaded <<: prints the set
@@ -276,39 +326,3 @@ istream& operator>>(istream &input, IntSet &s){
     return input;
 }
 
-//----------------------------------------------------------------------------
-//              Other Methods
-//----------------------------------------------------------------------------
-// Accessor Methods:
-// getSize()
-// getSize(): returns the private data 'size' of the IntSet
-// @return integer
-int IntSet::getSize() const {
-    return size;
-}
-
-
-//----------------------------------------------------------------------------
-// isEmpty() method
-// isEmpty(): returns a boolean value true if set is empty
-// @return bool
-bool IntSet::isEmpty() {
-    for (int count = 0; count <= size; count++){
-        if (set[count] == true){
-            return false;
-        }
-    }
-    return true;
-}
-
-//----------------------------------------------------------------------------
-// isInSet() method
-// isInSet(): returns a boolean value true if set is empty
-// @param[in] number value to check in the set
-// @return bool
-bool IntSet::isInSet(int number){
-    if (number >=0 && number <= size){
-        return set[number];
-    }
-    return false;
-}

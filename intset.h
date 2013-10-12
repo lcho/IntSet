@@ -33,10 +33,7 @@ public:
     // IntSet();
     // The constructor below actually serves as the default and the "normal" constructor
     IntSet(int = -1, int = -1, int = -1, int = -1, int = -1);
-    
-    // To grab the size of the IntSet
-    int getSize() const;
-    
+   
     //Arithmetic operators
     IntSet operator+(const IntSet &) const;   // add 2 sets
     IntSet operator-(const IntSet &) const;   // subtract 2 sets

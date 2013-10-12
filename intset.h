@@ -44,13 +44,16 @@ public:
     bool operator==(const IntSet &) const;      // is object == parameter?
     bool operator!=(const IntSet &) const;      // is object != parameter?
 
+    //assignment operators
     IntSet& operator+=(const IntSet &);         //current object += parameter
     IntSet& operator-=(const IntSet &);         //current object -= parameter
     IntSet& operator*=(const IntSet &);         //current object *= parameter
-    bool insert(int);
-    bool remove(int);
-    void isEmpty(IntSet set);
-    void isInSet(int number);
+    
+    //basic functions
+    bool insert(int);                       // instert value into set
+    bool remove(int);                       // remove value from set
+    void isEmpty(IntSet set);               // check set for values
+    void isInSet(int number);               // check number in set
    
 private:
     int size;

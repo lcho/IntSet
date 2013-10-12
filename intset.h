@@ -15,16 +15,18 @@ using namespace std;
 class IntSet{
     
     
-    // overloaded <<: prints "DIVIDE BY ZERO ERROR!!!" if denominator is zero,
-    //    prints whole numbers without denominator (as ints), otherwise uses '/'
+    // overloaded <<:
+    //    prints all values in the set
     friend ostream& operator<<(ostream&, const IntSet&);
     
-    // overloaded >>: takes 2 ints as numerator and denominator, does no
-    //    error checking, standard C casting between floats, char, etc occurs
+    // overloaded >>: takes any values except negative numbers
+    //    input operator stops if number is invalid (negative numbers)
     friend istream& operator>>(istream&, IntSet&);
     
     
 public:
+    // (On main.cpp) Users are unable to type in ' IntSet A(); '    or     ' IntSet E; '
+    // Note: Default Empty Constructor doesn't seem to working properly
     IntSet();
     IntSet(int = -1, int = -1, int = -1, int = -1, int = -1);
     

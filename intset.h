@@ -1,10 +1,4 @@
-/**
-File: inset.h
-  Project: lab2
-
-  Creator: Terence Schumacher on 10/8/13.
-  Copyright: (c) 2013 Terence Schumacher. All rights reserved.
-*/
+/** @file intset.h */
 
 #ifndef __INTSET_H
 #define __INTSET_H

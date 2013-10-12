@@ -1,7 +1,4 @@
-//
-//  main.cpp
-//  lab2
-//
+/** @file main.cpp */
 
 #include "intset.h"
 #include <iostream>
@@ -12,13 +9,23 @@ int main(){
     
     IntSet A(1,2,30,4,5);
     IntSet B(1);
+    IntSet C;
+    IntSet X(A);
     //A*B;
     //cout << A*B;
     
     //cout << "Insert values for A: (use -1 to terminate):" << endl;
     //cin >> A;
-    cout << (A);
-    
+    cout << "A: " << A << endl;
+    cout << "B: " << B << endl;
+    B.insert (-9);
+    cout << "B: " << B << endl;
+    B.insert (10);
+    cout << "B: " << B << endl;
+    cout << "C: " << C << endl;
+    C.insert(1);
+    cout << "C: " << C << endl;
+    cout << "X: " << X << endl;
     return 0;
 }
 

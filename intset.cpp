@@ -275,7 +275,7 @@ bool IntSet::isInSet(int number){
 ostream& operator<<(ostream &output, const IntSet& s) {
     output << "{ ";
     for (int counter = 0; counter < s.size; counter++){
-        output << s.set[counter] << ", ";
+        output << s.set[counter] << " ";
     }
     output << "}";
     return output;

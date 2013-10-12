@@ -214,17 +214,16 @@ IntSet IntSet::operator*(const IntSet & m) const{
 //----------------------------------------------------------------------------
 // operator=
 // overloaded =: assigning an IntSet object to another
-IntSet IntSet::operator=(const IntSet & assign) const{
-    IntSet assigning;
-    assigning.size = assign.size;
+IntSet IntSet::operator=(const IntSet & assign) {
+    this->size = assign.size;
     for(int index = 0; index <= assign.size; index++){
-        assigning.set[index] = false;
+        this->set[index] = false;
         if(assign.set[index] == true){
-            assigning.set[index] = true;
+            this->set[index] = true;
         }
     }
     
-    return assigning;
+    return *this;
 }
 
 

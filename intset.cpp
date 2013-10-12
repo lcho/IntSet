@@ -47,28 +47,42 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
 // operator+
 // overloaded +: addition of 2 IntSets
 IntSet IntSet::operator+(const IntSet & add) const{
+    int tempSize = 0;
+    bool * temp;
     IntSet addition (-1);
     // A+B = adds all numbers in both sets
-    if (size  > add.getSize()){
-        for(int index = 0; index <= add.getSize(); index++){
-            
-            if(add.set[index]== true){
-                set[index] = true;
+    if (size  > add.size){
+        tempSize = size;
+        temp = new bool [tempSize];
+        for(int index = 0; index <= size; index++){
+            if(set[index]== true){
+                temp[index] = true;
             }
         }
-        addition.size = size;
-        addition.set = set;
+        for(int index = 0; index <= add.size; index++){
+            
+            if(add.set[index]== true){
+                temp[index] = true;
+            }
+        }
     }else{
+        tempSize = add.size;
+        temp = new bool [tempSize];
+        for(int index = 0; index <= add.size; index++){
+            if(add.set[index]== true){
+                temp[index] = true;
+            }
+        }
         for(int index = 0; index <= size; index++){
             if(set[index]== true){
                 add.set[index] = true;
             }
         }
-        addition.size = add.getSize();
-        addition.set = add.set;
     }
+    addition.size = tempSize;
+    addition.set = temp;
     return addition;
-}
+} // end operator+
 
 
 
@@ -76,18 +90,23 @@ IntSet IntSet::operator+(const IntSet & add) const{
 // operator-
 // overloaded -: addition of 2 IntSets
 IntSet IntSet::operator-(const IntSet & sub) const{
+    bool* temp = new bool [size];
     IntSet subtraction (-1);
-    for(int index = 0; index <= sub.getSize(); index++){
-        
+    for(int index = 0; index <= size; index++){
+        if(set[index]== true){
+            temp[index] = true;
+        }
+    }
+    for(int index = 0; index <= sub.size; index++){
         if(set[index] == true && sub.set[index]== true){
-            set[index] = false;
+            temp[index] = false;
         }
     }
     subtraction.size = size;
-    subtraction.set = set;
-    
+    subtraction.set = temp;
+
     return subtraction;
-}
+} // end operator-
 
 
 //----------------------------------------------------------------------------
@@ -238,15 +257,6 @@ istream& operator>>(istream &input, IntSet &s){
 
 //----------------------------------------------------------------------------
 //              Other Methods
-//----------------------------------------------------------------------------
-// Accessor Methods:
-// getSize()
-// getSize(): returns the private data 'size' of the IntSet
-int IntSet::getSize() const {
-    return size;
-}
-
-
 //----------------------------------------------------------------------------
 // isEmpty() method
 // isEmpty(): returns a boolean value true if set is empty

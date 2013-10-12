@@ -1,4 +1,13 @@
-/** @file intset.h */
+/** @file intset.h 
+    @brief The IntSet Header File
+    @details Top Down Design method and constructor initialization
+    @author Lance Cho
+    @author Terence Schumacher
+    @description 
+    @class IntSet
+    
+
+*/
 
 #ifndef __INTSET_H
 #define __INTSET_H

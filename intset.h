@@ -28,10 +28,7 @@ class IntSet{
     
     
 public:
-    // (On main.cpp) Users are unable to type in ' IntSet A(); '    or     ' IntSet E; '
-    // Note: Default Empty Constructor doesn't seem to working properly
-    // IntSet();
-    // The constructor below actually serves as the default and the "normal" constructor
+    //Constructor
     IntSet(int = -1, int = -1, int = -1, int = -1, int = -1);
    
     //Arithmetic operators
@@ -45,15 +42,15 @@ public:
     bool operator!=(const IntSet &) const;      // is object != parameter?
 
     //assignment operators
-    IntSet& operator+=(const IntSet &);         //current object += parameter
-    IntSet& operator-=(const IntSet &);         //current object -= parameter
-    IntSet& operator*=(const IntSet &);         //current object *= parameter
+    IntSet operator+=(const IntSet &) const;         //current object += parameter
+    IntSet operator-=(const IntSet &) const;         //current object -= parameter
+    IntSet operator*=(const IntSet &) const;         //current object *= parameter
     
     //basic functions
     bool insert(int);                       // instert value into set
     bool remove(int);                       // remove value from set
-    void isEmpty(IntSet set);               // check set for values
-    void isInSet(int number);               // check number in set
+    bool isEmpty();               // check set for values
+    bool isInSet(int);               // check number in set
    
 private:
     int size;

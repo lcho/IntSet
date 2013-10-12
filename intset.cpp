@@ -1,7 +1,4 @@
-/**
- @file intset.cpp
- 
- */
+/** @file intset.cpp  */
 
 #include "intset.h"
 const int MAX_VALUE = 5;

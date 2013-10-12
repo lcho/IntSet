@@ -291,14 +291,7 @@ ostream& operator<<(ostream &output, const IntSet& s) {
 // @param[in] IntSet set to assign input 
 // @return IntSet assigned input values
 istream& operator>>(istream &input, IntSet &s){
- 
- //-------Remove before submitting-----
- //  Should the user enter more values if there are already 5 values
- //  in the set? For now, the user is not limited to how many numbers
- //  he/she can input. User needs to type in a negative number to 
- //  get out of the input '>>' operator.
- 
-    for (int counter = 0; counter <= s.size; counter++) {
+   for (int counter = 0; counter <= s.size; counter++) {
         int temp = 0;
         input >> temp;
         
@@ -308,13 +301,9 @@ istream& operator>>(istream &input, IntSet &s){
         
         if (temp > s.size){
             
-            // For some reason some numbers were being flagged as true
-            //  even if they are not in the set. This for-loop is the
-            //  'trick' for now.
             for(int counter = s.size; counter <= temp; counter++){
                 s.set[counter] = false;
             }
-            //----end of for-loop trick
             
             s.size = temp+1;
             s.set[temp] = true;

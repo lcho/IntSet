@@ -15,8 +15,6 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
             max = values[counter];
         }
         
-        // for testting - please remove
-        // cout << max << endl;
     }
     
     set = new bool[max+1];
@@ -38,14 +36,6 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
      }
      */
     
-}
-
-
-//----------------------------------------------------------------------------
-// getSize()
-// returns the private data 'size' of the IntSet
-int IntSet::getSize() const {
-    return size;
 }
 
 
@@ -122,7 +112,6 @@ IntSet IntSet::operator*(const IntSet & m) const{
             if( set[index] == true && m.set[index] == true){
                 temp[index] = true;
             }
-            //cout << temp[index];
         }
     }else{  // A*B = goes inside this else statement if A's size is smaller
         
@@ -139,8 +128,6 @@ IntSet IntSet::operator*(const IntSet & m) const{
                 temp[index] = true;
             }
             
-            // for testing - please remove
-            // cout << temp[index];
         }
         
     }
@@ -190,18 +177,6 @@ bool IntSet::remove(int number){
 }
 
 
-//----------------------------------------------------------------------------
-// isEmpty() method
-// isEmpty(): returns a boolean value true if set is empty
-bool IntSet::isEmpty() {
-    for (int count = 0; count <= size; count++){
-        if (set[count] == true){
-            return false;
-        }
-    }
-    return true;
-}
-
 
 //----------------------------------------------------------------------------
 //              Overloaded Input & Output Operators
@@ -227,6 +202,7 @@ ostream& operator<<(ostream &output, const IntSet& s) {
 // overloaded >>:  Not Yet Done
 istream& operator>>(istream &input, IntSet &s){
  
+ //-------Remove before submitting-----
  //  Should the user enter more values if there are already 5 values
  //  in the set? For now, the user is not limited to how many numbers
  //  he/she can input. User needs to type in a negative number to 
@@ -257,11 +233,38 @@ istream& operator>>(istream &input, IntSet &s){
         }
     }
     
-    // for testing - please remove afterwards
-    cout << "After:" << endl;
-    for(int counter=0; counter < s.size; counter++){
-        cout << s.set[counter] << " ";
-    }
     return input;
 }
 
+//----------------------------------------------------------------------------
+//              Other Methods
+//----------------------------------------------------------------------------
+// Accessor Methods:
+// getSize()
+// getSize(): returns the private data 'size' of the IntSet
+int IntSet::getSize() const {
+    return size;
+}
+
+
+//----------------------------------------------------------------------------
+// isEmpty() method
+// isEmpty(): returns a boolean value true if set is empty
+bool IntSet::isEmpty() {
+    for (int count = 0; count <= size; count++){
+        if (set[count] == true){
+            return false;
+        }
+    }
+    return true;
+}
+
+//----------------------------------------------------------------------------
+// isInSet() method
+// isInSet(): returns a boolean value true if set is empty
+bool IntSet::isInSet(int number){
+    if (number >=0 && number <= size){
+        return set[number];
+    }
+    return false;
+}

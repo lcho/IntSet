@@ -90,6 +90,50 @@ IntSet IntSet::operator+(const IntSet & add) const{
 
 
 
+
+/*
+
+IntSet IntSet::operator+(const IntSet & add) const{
+    int tempSize = 0;
+    bool * temp;
+    IntSet addition;
+    // A+B = adds all numbers in both sets
+    if (size  > add.size){
+        tempSize = size;
+        temp = new bool [tempSize];
+        for(int index = 0; index <= size; index++){
+            if(set[index]== true){
+                temp[index] = true;
+            }
+        }
+        for(int index = 0; index <= add.size; index++){
+            
+            if(add.set[index]== true){
+                temp[index] = true;
+            }
+        }
+    }else{
+        tempSize = add.size;
+        temp = new bool [tempSize];
+        for(int index = 0; index <= add.size; index++){
+            if(add.set[index]== true){
+                temp[index] = true;
+            }
+        }
+        for(int index = 0; index <= size; index++){
+            if(set[index]== true){
+                add.set[index] = true;
+            }
+        }
+    }
+    addition.size = tempSize;
+    addition.set = temp;
+    return addition;
+} 
+
+*/
+
+
 //----------------------------------------------------------------------------
 // operator-
 // overloaded -: addition of 2 IntSets, current object and parameter

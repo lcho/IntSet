@@ -164,7 +164,7 @@ IntSet IntSet::operator*(const IntSet & m) const{
     IntSet intersect;
     
     // A*B = goes inside this if statement if A's size is bigger
-    if (size  > m.size{
+    if (size  > m.size){
         for(int index = m.size-1; index >= 0; index--){
             if(set[index]==true && m.set[index]==true){
                 tempSize = index + 1;

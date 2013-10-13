@@ -84,7 +84,7 @@ IntSet IntSet::operator+(const IntSet & add) const{
         }
         for(int index = 0; index <= size; index++){
             if(set[index]== true){
-                add.set[index] = true;
+                temp[index] = true;
             }
         }
     }

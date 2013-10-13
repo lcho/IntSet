@@ -36,7 +36,6 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
     size = max+1;
     for(int counter=0; counter < size; counter++){
         set[counter] = false;
-        // cout << set[counter] << endl;
     }
     for(int counter=0; counter < MAX_VALUE; counter++){
         if (values[counter] >= 0){
@@ -56,7 +55,8 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
 // @param[in] IntSet first set to combine
 // @param[in] IntSet second set to combine
 // @return IntSet first+second
-IntSet IntSet::operator+(const IntSet & add) const{
+
+/*IntSet IntSet::operator+(const IntSet & add) const{
     IntSet addition;  
     // A+B = adds all numbers in both sets
     if (size  > add.size){
@@ -78,12 +78,7 @@ IntSet IntSet::operator+(const IntSet & add) const{
         addition.set = add.set;
     }
     return addition;
-}
-
-
-
-
-/*
+}*/
 
 IntSet IntSet::operator+(const IntSet & add) const{
     int tempSize = 0;
@@ -122,8 +117,6 @@ IntSet IntSet::operator+(const IntSet & add) const{
     addition.set = temp;
     return addition;
 } 
-
-*/
 
 
 //----------------------------------------------------------------------------

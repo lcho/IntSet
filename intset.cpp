@@ -55,31 +55,6 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
 // @param[in] IntSet first set to combine
 // @param[in] IntSet second set to combine
 // @return IntSet first+second
-
-/*IntSet IntSet::operator+(const IntSet & add) const{
-    IntSet addition;  
-    // A+B = adds all numbers in both sets
-    if (size  > add.size){
-        for(int index = 0; index <= add.size; index++){
-            
-            if(add.set[index]== true){
-                set[index] = true;
-            }
-        }
-        addition.size = size;
-        addition.set = set;
-    }else{
-        for(int index = 0; index <= size; index++){
-            if(set[index]== true){
-                add.set[index] = true;
-            }
-        }
-        addition.size = add.size;
-        addition.set = add.set;
-    }
-    return addition;
-}*/
-
 IntSet IntSet::operator+(const IntSet & add) const{
     int tempSize = 0;
     bool * temp;

@@ -59,7 +59,7 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
 IntSet IntSet::operator+(const IntSet & add) const{
     IntSet addition;  
     // A+B = adds all numbers in both sets
-    if (size  > add.size{
+    if (size  > add.size){
         for(int index = 0; index <= add.size; index++){
             
             if(add.set[index]== true){

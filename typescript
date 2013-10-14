@@ -1,0 +1,397 @@
+Script started on Mon 14 Oct 2013 12:31:32 AM PDT
+]0;lancecho@uw1-320-21:~/lab2[lancecho@uw1-320-21 lab2]$ g++ lab2.cpp intset.cpp
+]0;lancecho@uw1-320-21:~/lab2[lancecho@uw1-320-21 lab2]$ valgrind ./a.out
+==7503== Memcheck, a memory error detector
+==7503== Copyright (C) 2002-2009, and GNU GPL'd, by Julian Seward et al.
+==7503== Using Valgrind-3.5.0 and LibVEX; rerun with -h for copyright info
+==7503== Command: ./a.out
+==7503== 
+Enter ints for set A: 
+Enter ints for set B: 
+A = { 0 9 }
+B = { 0 3 15 }
+==7503== Invalid read of size 1
+==7503==    at 0x8049DDA: IntSet::operator+(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048A71: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025078 is 0 bytes after a block of size 16 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x80497F0: IntSet::IntSet(int, int, int, int, int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048890: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x8049E0D: IntSet::operator+(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048A71: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025032 is 0 bytes after a block of size 10 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x80497F0: IntSet::IntSet(int, int, int, int, int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x804885D: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid write of size 1
+==7503==    at 0x8049384: IntSet::operator=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048A90: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250b3 is 0 bytes after a block of size 11 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x80497F0: IntSet::IntSet(int, int, int, int, int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x80488C6: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x8049381: IntSet::operator=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048A90: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40251e0 is 0 bytes after a block of size 16 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x8049DC1: IntSet::operator+(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048A71: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x804971C: operator<<(std::ostream&, IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048AF5: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250a8 is 0 bytes inside a block of size 11 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048A9E: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+C = { 0 3 9 15 }
+
+Ask if A == C
+A is not == C
+
+Ask if A != C
+==7503== Invalid read of size 1
+==7503==    at 0x804944A: IntSet::operator!=(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048BD7: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250a8 is 0 bytes inside a block of size 11 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048A9E: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+A is not == C
+
+==7503== Invalid read of size 1
+==7503==    at 0x80498BC: IntSet::operator-(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048C40: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025078 is 0 bytes after a block of size 16 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x80497F0: IntSet::IntSet(int, int, int, int, int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048890: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Conditional jump or move depends on uninitialised value(s)
+==7503==    at 0x8049721: operator<<(std::ostream&, IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048C68: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+Compute B - A = { 3 15 }
+==7503== Invalid read of size 1
+==7503==    at 0x80498BC: IntSet::operator-(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048CC0: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025032 is 0 bytes after a block of size 10 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x80497F0: IntSet::IntSet(int, int, int, int, int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x804885D: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x80498EF: IntSet::operator-(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048CC0: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025032 is 0 bytes after a block of size 10 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x80497F0: IntSet::IntSet(int, int, int, int, int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x804885D: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Conditional jump or move depends on uninitialised value(s)
+==7503==    at 0x8049721: operator<<(std::ostream&, IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048CE8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+Compute A - B = { 9 }
+Compute D = (A * B) + D
+==7503== Invalid read of size 1
+==7503==    at 0x8049DDA: IntSet::operator+(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DAB: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250f5 is 0 bytes after a block of size 13 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x80497F0: IntSet::IntSet(int, int, int, int, int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x80488FC: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x8049E0D: IntSet::operator+(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DAB: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025339 is 0 bytes after a block of size 1 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x8049BFB: IntSet::operator*(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048D8C: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x8049381: IntSet::operator=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DCA: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40253b5 is 0 bytes after a block of size 13 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x8049DC1: IntSet::operator+(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DAB: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid write of size 1
+==7503==    at 0x8049384: IntSet::operator=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DCA: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250f5 is 0 bytes after a block of size 13 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x80497F0: IntSet::IntSet(int, int, int, int, int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x80488FC: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x804971C: operator<<(std::ostream&, IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048E6B: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250e8 is 0 bytes inside a block of size 13 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DD8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+Before: D = { 5 10 12 }After: D = { 0 5 10 12 }
+
+Test assignment operators
+==7503== Invalid read of size 1
+==7503==    at 0x8049381: IntSet::operator=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048ECE: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250e8 is 0 bytes inside a block of size 13 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DD8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid write of size 1
+==7503==    at 0x8049384: IntSet::operator=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048ECE: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250e8 is 0 bytes inside a block of size 13 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DD8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x8049381: IntSet::operator=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048EED: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250e8 is 0 bytes inside a block of size 13 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DD8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid write of size 1
+==7503==    at 0x8049384: IntSet::operator=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048EED: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250a8 is 0 bytes inside a block of size 11 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048A9E: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x8049381: IntSet::operator=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048F0C: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250a8 is 0 bytes inside a block of size 11 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048A9E: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid write of size 1
+==7503==    at 0x8049384: IntSet::operator=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048F0C: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250e8 is 0 bytes inside a block of size 13 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DD8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid free() / delete / delete[]
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048F1A: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250e8 is 0 bytes inside a block of size 13 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DD8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid free() / delete / delete[]
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048F25: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250a8 is 0 bytes inside a block of size 11 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048A9E: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid free() / delete / delete[]
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048F51: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250e8 is 0 bytes inside a block of size 13 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DD8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x8049381: IntSet::operator=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8049CC8: IntSet::operator*=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048F8E: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025421 is 0 bytes after a block of size 1 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x8049BFB: IntSet::operator*(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8049CAF: IntSet::operator*=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048F8E: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x8049E0D: IntSet::operator+(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8049E8D: IntSet::operator+=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048FAD: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025161 is 0 bytes after a block of size 1 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x80497F0: IntSet::IntSet(int, int, int, int, int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048980: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x8049381: IntSet::operator=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8049EA6: IntSet::operator+=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048FAD: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025491 is 0 bytes after a block of size 1 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x8049DC1: IntSet::operator+(IntSet const&) const (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8049E8D: IntSet::operator+=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048FAD: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid write of size 1
+==7503==    at 0x8049384: IntSet::operator=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8049EA6: IntSet::operator+=(IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048FAD: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025161 is 0 bytes after a block of size 1 alloc'd
+==7503==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==7503==    by 0x80497F0: IntSet::IntSet(int, int, int, int, int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048980: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x804971C: operator<<(std::ostream&, IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8049012: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250e8 is 0 bytes inside a block of size 13 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DD8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x804971C: operator<<(std::ostream&, IntSet const&) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8049036: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025160 is 0 bytes inside a block of size 1 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048FBB: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+X = { 0 5 10 12 } Y = { 0 }
+
+==7503== Invalid read of size 1
+==7503==    at 0x804954E: IntSet::isInSet(int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x804906C: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250e8 is 0 bytes inside a block of size 13 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DD8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+0 in set
+-1000 not in set
+==7503== Invalid read of size 1
+==7503==    at 0x8049501: IntSet::isEmpty() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x804910D: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025028 is 0 bytes inside a block of size 10 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048FC6: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+A not empty
+Number not in the set
+==7503== Invalid read of size 1
+==7503==    at 0x80496E6: IntSet::remove(int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x804917C: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4029f08 is not stack'd, malloc'd or (recently) free'd
+==7503== 
+==7503== Invalid write of size 1
+==7503==    at 0x80494C9: IntSet::insert(int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x80491AE: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250e8 is 0 bytes inside a block of size 13 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DD8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x80494D8: IntSet::insert(int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x80491AE: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250e8 is 0 bytes inside a block of size 13 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DD8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid write of size 1
+==7503==    at 0x80494BA: IntSet::insert(int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x80491C7: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4029f08 is not stack'd, malloc'd or (recently) free'd
+==7503== 
+==7503== Invalid write of size 1
+==7503==    at 0x80494C9: IntSet::insert(int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x80491C7: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4029f08 is not stack'd, malloc'd or (recently) free'd
+==7503== 
+==7503== Invalid read of size 1
+==7503==    at 0x80494D8: IntSet::insert(int) (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x80491C7: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4029f08 is not stack'd, malloc'd or (recently) free'd
+==7503== 
+==7503== Invalid free() / delete / delete[]
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x80491E2: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025160 is 0 bytes inside a block of size 1 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048FBB: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid free() / delete / delete[]
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8049246: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250e8 is 0 bytes inside a block of size 13 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DD8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid free() / delete / delete[]
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8049278: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250e8 is 0 bytes inside a block of size 13 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048DD8: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid free() / delete / delete[]
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x80492AA: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x40250a8 is 0 bytes inside a block of size 11 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048A9E: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== Invalid free() / delete / delete[]
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8049305: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==  Address 0x4025028 is 0 bytes inside a block of size 10 free'd
+==7503==    at 0x4005136: operator delete[](void*) (vg_replace_malloc.c:368)
+==7503==    by 0x8049A49: IntSet::~IntSet() (in /net/metis/home2/lancecho/lab2/a.out)
+==7503==    by 0x8048FC6: main (in /net/metis/home2/lancecho/lab2/a.out)
+==7503== 
+==7503== 
+==7503== HEAP SUMMARY:
+==7503==     in use at exit: 7 bytes in 7 blocks
+==7503==   total heap usage: 20 allocs, 21 frees, 117 bytes allocated
+==7503== 
+==7503== LEAK SUMMARY:
+==7503==    definitely lost: 7 bytes in 7 blocks
+==7503==    indirectly lost: 0 bytes in 0 blocks
+==7503==      possibly lost: 0 bytes in 0 blocks
+==7503==    still reachable: 0 bytes in 0 blocks
+==7503==         suppressed: 0 bytes in 0 blocks
+==7503== Rerun with --leak-check=full to see details of leaked memory
+==7503== 
+==7503== For counts of detected and suppressed errors, rerun with: -v
+==7503== Use --track-origins=yes to see where uninitialised values come from
+==7503== ERROR SUMMARY: 194 errors from 44 contexts (suppressed: 15 from 8)
+]0;lancecho@uw1-320-21:~/lab2[lancecho@uw1-320-21 lab2]$ exit
+
+Script done on Mon 14 Oct 2013 12:31:51 AM PDT

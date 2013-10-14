@@ -21,7 +21,6 @@ const int MAX_VALUE = 5;
  * @param[in] value3 set value transferred into the bool array
  * @param{in} value4 set value transferred into the bool array
  * @param[in] value5 set value transferred into the bool array
- * @return IntSet 
  */
 IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
     
@@ -44,6 +43,12 @@ IntSet::IntSet(int value1, int value2, int value3, int value4, int value5){
         
     }
 } // end Constructor
+
+// Destructor
+IntSet::~IntSet(){
+    delete [] set;
+    set = NULL;
+} // end Destructor
 
 
 

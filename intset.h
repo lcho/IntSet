@@ -28,8 +28,9 @@ class IntSet{
     
     
 public:
-    //Constructor
+    //Constructor and Destructor
     IntSet(int = -1, int = -1, int = -1, int = -1, int = -1);
+    ~IntSet();
    
     //Arithmetic operators
     IntSet operator+(const IntSet &) const;   // add 2 sets
